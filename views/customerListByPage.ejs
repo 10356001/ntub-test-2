@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!--*********-->
+<!-- 加入css -->
+<!--*********-->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/myDropdownMenu.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div class="header">
+        <img src="images/logo.jpg" class="logo">
+       
+        <div class="navbar">
+            <ul class="right">
+                <li><a href="/">回首頁</a></li>
+            </ul>          
+        </div>        
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->  
+    
+    
+    
+    <!--==========================================-->
+    <div class="container">
+        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="content">
+            <h2 class="title">客戶資料清單</h2>   
+
+            <!------------------------------>
+            <!-- 頁碼開始                 -->
+            <!------------------------------>       
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="pagination">
+                        <li>
+                            <a>第<%=pageNo%>頁</a>
+                        </li>                   
+
+                        <% if(startPage>1){ %>
+                            <li>
+                                <a href="/customerListByPage?pageNo=<%=(startPage-1)%>">上一區段...</a>
+                            </li>
+                        <% } %> 
+
+                        <% for(var i=startPage; i<startPage+linePerPage; i++) {%>
+                            <% if(i<=totalPage){ %>
+                                <li>
+                                    <a href="/customerListByPage?pageNo=<%=i%>"><%=i%></a>
+                                </li>
+                            <% } %> 
+                        <% } %>
+
+                        <% if(startPage+linePerPage<totalPage){ %>
+                            <li>
+                                <a href="/customerListByPage?pageNo=<%=(startPage+linePerPage)%>">...下一區段</a>
+                            </li>
+                        <% } %>                         
+                    </ul>
+				
+                    <!----------------------->
+                    <!-- 查詢              -->
+                    <!----------------------->
+                    <form class="navbar-form nav navbar-right" role="search" method="get" action="/customerSearchByName">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="客戶名稱 / 部份名稱" id="cusName" name="cusName"/>
+                        </div> 
+                        <button type="submit" class="btn btn-default">
+                            查詢
+                        </button>
+                    </form>
+                </div>  
+            </div>  
+            <!------------------------------>
+            <!-- 頁碼結束                 -->
+            <!------------------------------>
+                    
+            <p>
+                <!--~~~~~~~~~~~~~~~~~~~~~~-->
+                <!-- 表格                 -->
+                <!--~~~~~~~~~~~~~~~~~~~~~~--> 
+                <table width="100%" border="0" class="dataList">
+                    <!--~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!-- 表頭                 -->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~-->                 
+                    <tr>
+                        <td width="100">編號</td>
+                        <td width="250">名稱</td>
+                        <td>地址</td>
+                    </tr>
+                    <!--~~~~~~~~~~~~~~~~~~~~~~-->                     
+                    
+                    <!--~~~~~~~~~~~~~~~~~~~~~~-->
+                    <!-- 資料內容             -->
+                    <!--~~~~~~~~~~~~~~~~~~~~~~-->                      
+                    <% for(var i=0; i<data.length; i++) {%>                                     
+                        <tr>
+                            <td><%= data[i].cusNo %></td>
+                            <td><%= data[i].cusName %></td>
+                            <td><%= data[i].address %></td>
+                        </tr>
+                    <% } %> 
+                    <!--~~~~~~~~~~~~~~~~~~~~~~-->                    
+                </table> 
+                <!--~~~~~~~~~~~~~~~~~~~~~~-->    
+            </p>	    
+        </div>    
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->      
+        
+        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="footer">
+            NTUB imd, 2017.    
+        </div>        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--> 
+	
+    </div>
+    <!--==========================================-->  
+    <!--*********-->
+    <!-- 載入js  -->
+    <!--*********-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/bootstrap.min.js"></script>        
+    <script src="js/scripts.js"></script>   
+    <script src="js/myDropdownMenu.js"></script>        
+</body>
+</html>

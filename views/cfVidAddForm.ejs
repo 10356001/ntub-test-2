@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!--*********-->
+<!-- 加入css -->
+<!--*********-->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/myDropdownMenu.css" rel="stylesheet" type="text/css" />
+<!------------------------>
+<!-- 引用datepicker.css -->
+<!------------------------> 
+<link href="css/datepicker.css" rel="stylesheet">
+
+</head>
+<body>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div class="header">
+        <img src="images/logo.jpg" class="logo">
+       
+        <div class="navbar">
+            <ul class="right">
+                <li><a href="/">回首頁</a></li>
+            </ul>          
+        </div>        
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->  
+    
+    
+    
+    <!--==========================================-->
+    <div class="container">
+        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="content">
+            <h2 class="title">影片課堂新增</h2>   
+            
+            <p>
+                <!--********************************************-->
+                <form role="form" method="post" enctype="multipart/form-data" action="/cfVidAdd">			
+                    <div class="form-group">                     
+                        <label>課堂編號</label>
+                        <input type="int" class="form-control" name="classFileNo"/>
+                    </div>
+
+                    <div class="form-group">                     
+                        <label>文字</label>
+                        <input type="text" class="form-control" name="word"/>
+                    </div>                    
+
+                    <div class="form-group">                     
+                        <label>影片上傳</label>
+                        <input type="file" name="video">
+                    </div>
+
+                                                                                                    
+
+                    <button type="submit" class="btn btn-default">
+                        新增
+                    </button>
+                </form>    
+                <!--********************************************-->
+            </p>	    
+        </div>    
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->      
+        
+        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="footer">
+            NTUB imd, 2017.    
+        </div>        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--> 
+	
+    </div>
+    <!--==========================================-->  
+    <!--*********-->
+    <!-- 載入js  -->
+    <!--*********-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script src="js/bootstrap.min.js"></script>	
+    <script src="js/myDropdownMenu.js"></script>
+ 	
+    <!------------------------>
+    <!-- 引用datepicker.js  -->
+    <!------------------------> 
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/scripts.js"></script>   
+	
+    <!------------------------------->
+    <!-- 加入date picker設定       -->
+    <!------------------------------->
+    <script>
+    $( function() {
+        $('#dp3').datepicker();
+        
+        $('#dp3').on('changeDate', function(ev){
+            $(this).datepicker('hide');
+        });	
+    });     
+    </script>
+	
+       
+</body>
+</html>

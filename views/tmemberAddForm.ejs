@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>測試網頁</title>
+<!--*********-->
+<!-- 加入css -->
+<!--*********-->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet" type="text/css" />
+<link href="css/myDropdownMenu.css" rel="stylesheet" type="text/css" />
+<!------------------------>
+<!-- 引用datepicker.css -->
+<!------------------------> 
+<link href="css/datepicker.css" rel="stylesheet">
+
+</head>
+<body>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+    <div class="header">
+        <img src="images/logo.jpg" class="logo">
+       
+        <div class="navbar">
+            <ul class="right">
+                <li><a href="/">回首頁</a></li>
+            </ul>          
+        </div>        
+    </div>
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->  
+    
+    
+    
+    <!--==========================================-->
+    <div class="container">
+        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="content">
+            <h2 class="title">產品新增</h2>   
+            
+            <p>
+                <!--********************************************-->
+                <!-- 上傳圖片時, method設定為post, 另設定enctype  -->
+                <!--**********************************************-->
+                <form role="form" method="post" enctype="multipart/form-data" action="/tmemberAdd">			
+                    <div class="form-group">                     
+                        <label>會員帳號(*)</label>
+                        <input type="text" class="form-control" name="memNo"/>
+                    </div>
+
+                    <div class="form-group">                     
+                        <label>會員名稱</label>
+                        <input type="text" class="form-control" name="memName"/>
+                    </div>                    
+
+                    <div class="form-group">                     
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="memEmail"/>
+                    </div>
+
+                    <div class="form-group">                     
+                        <label>電話</label>
+                        <input type="text" class="form-control" name="memPhone"/>
+                    </div>
+
+                    <div class="form-group">                     
+                        <label>大學生/小學生</label>
+                        <input type="text" class="form-control" name="memTitle"/>
+                    </div>
+
+                    <div class="form-group">                     
+                        <label>選擇照片</label>
+                        <input type="file"accept="image/gif, image/jpeg, image/png" id="picture"  name="picture" />
+                    </div>
+
+                    <div class="form-group">                     
+                        <label>學校</label>
+                        <input type="text" class="form-control" name="memSchool"/>
+                    </div>
+
+                    <div class="form-group">                     
+                        <label>主修</label>
+                        <input type="text" class="form-control" name="memMajor"/>
+                    </div>
+
+                                                                                                
+
+                    <button type="submit" class="btn btn-default">
+                        新增
+                    </button>
+                </form>    
+                <!--********************************************-->
+            </p>	    
+        </div>    
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->      
+        
+        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+        <div class="footer">
+            NTUB imd, 2017.    
+        </div>        
+        <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~--> 
+	
+    </div>
+    <!--==========================================-->  
+    <!--*********-->
+    <!-- 載入js  -->
+    <!--*********-->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script src="js/bootstrap.min.js"></script>	
+    <script src="js/myDropdownMenu.js"></script>
+ 	
+    <!------------------------>
+    <!-- 引用datepicker.js  -->
+    <!------------------------> 
+    <script src="js/bootstrap-datepicker.js"></script>
+    <script src="js/scripts.js"></script>   
+	
+    <!------------------------------->
+    <!-- 加入date picker設定       -->
+    <!------------------------------->
+    <script>
+    $( function() {
+        $('#dp3').datepicker();
+        
+        $('#dp3').on('changeDate', function(ev){
+            $(this).datepicker('hide');
+        });	
+    });     
+    </script>
+	
+       
+</body>
+</html>
